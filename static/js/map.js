@@ -57,7 +57,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function initialize() {
   var mapOptions = {
     zoom: 12,
-    center: new google.maps.LatLng(-33.868011, 151207566),
+    center: new google.maps.LatLng(-34.868011, 151207566),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     
     
@@ -93,7 +93,7 @@ function initialize() {
         fillOpacity: 0.35,
         map: map,
         center: pos,
-        radius: 8300
+        radius: 8500
       };
       cityCircle = new google.maps.Circle(sunCircle)
 
@@ -148,11 +148,12 @@ function initialize() {
         return function(){
           var request = {
             origin: new google.maps.LatLng(latitude,longitude), 
-            destination:new google.maps.LatLng(marker.position.k,marker.position.A),
+            destination: new google.maps.LatLng(marker.position.k,marker.position.A),
             travelMode: google.maps.DirectionsTravelMode.DRIVING,
             unitSystem: google.maps.DirectionsUnitSystem.METRIC
             };
-          directionsService.route(request, function(response, status) {
+
+          /*directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
               directionsRenderer.setDirections(response);
               directionsRenderer.setMap(map);
@@ -160,7 +161,7 @@ function initialize() {
             } else {
               alert('Error: ' + status);
             }
-          });          
+          });*/          
         }}(marker,i)));
 
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
